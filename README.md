@@ -1,7 +1,7 @@
 # Semantic-Engine
 
 ## Dependencies and Setup
-To use the skip-thought code, you will need:
+To use the semantic engine code, you will need:
 * Python 2.7
 * A recent version of [NumPy](http://www.numpy.org/) and [SciPy](http://www.scipy.org/)
 * [NLTK 3](http://www.nltk.org/)
