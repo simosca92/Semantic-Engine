@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+	    <title>Semantic engine</title>
+	    	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	    	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+			<img id="back" src="{{ url_for('static', filename = 'wiki.png') }}" alt="Semantic View" style="width:304px;height:228px;">
+	</head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">// <![CDATA[
+		$( document ).ready(function() {
+		    $("#loading").hide();
+		});
+        function loading(){
+        	$("#loading").show();
+          }
+	// ]]></script>
+
+	<script type="text/javascript">
+		function selectOnlyThis(id) {
+		    for (var i = 1;i <= 3; i++)
+		    {
+		        document.getElementById("Check" + i).checked = false;
+		    }
+		    document.getElementById(id).checked = true;
+		}
+	</script>
+	<body>
+    	<div id="loading"></div>
+		<div id="content">
+			<div id=first>
+				<form  method="post" id="f1">
+					<div class="in">
+						<textarea name="value" id="txtArea" rows="3" cols="55">{{session['value']}}</textarea>
+					</div>
+					<div class="in">
+
+						<select  name="model">
+							
+							{% if session['model']=='1' %}
+								<option selected="selected" value="1">PV-DBOW + PV-DM</option>
+							{% else %}
+								<option value="1">PV-DBOW + PV-DM</option>
+							{% endif %}
+
+							{% if session['model']=='2' %}
+								<option selected="selected" value="2">PV-DBOW</option>
+							{% else %}
+								<option value="2">PV-DBOW</option>
+							{% endif %}
+
+							{% if session['model']=='3' %}
+								<option selected="selected" value="3">FASTSENT</option>
+							{% else %}
+								<option value="3">FASTSENT</option>
+							{% endif %}
+						</select>
+					</div>
+					<div class="in">
+						{% if session['topic']=='t1' %}
+							<label><input name="topic" checked="checked" type="checkbox" id="Check1" value="t1" onclick="selectOnlyThis(this.id)" >Letteratura</label>
+							<label><input name="topic" type="checkbox" id="Check2" value="t2" onclick="selectOnlyThis(this.id)" >Informatica</label>
+							<label><input name="topic" type="checkbox" id="Check3" value="t3" onclick="selectOnlyThis(this.id)" >Cinema</label>
+						{% endif %}
+						{% if session['topic']=='t2' %}
+							<label><input name="topic"  type="checkbox" id="Check1" value="t1" onclick="selectOnlyThis(this.id)" >Letteratura</label>
+							<label><input name="topic" checked="checked" type="checkbox" id="Check2" value="t2" onclick="selectOnlyThis(this.id)" >Informatica</label>
+							<label><input name="topic" type="checkbox" id="Check3" value="t3" onclick="selectOnlyThis(this.id)" >Cinema</label>
+						{% endif %}
+						{% if session['topic']=='t3' %}
+							<label><input name="topic"  type="checkbox" id="Check1" value="t1" onclick="selectOnlyThis(this.id)" >Letteratura</label>
+							<label><input name="topic" type="checkbox" id="Check2" value="t2" onclick="selectOnlyThis(this.id)" >Informatica</label>
+							<label><input name="topic" checked="checked" type="checkbox" id="Check3" value="t3" onclick="selectOnlyThis(this.id)" >Cinema</label>
+						{% endif %}
+					</div>
+					<p><input type=submit value=Search! onclick="loading();"></p>
+				
+				</form>
+				{% if result %}
+					<div id="rix">
+						<h3>Most similar (dictionary)</h3>
+						<p>{{ result[0] }}!</p>
+						<h3>Most similar (inferred vector)</h3>
+							{% for res in result[1] %}
+								{% if loop.index is divisibleby 2%}
+									<p class="answer">{{res}}</p>
+								{% else %}
+						    		<p class="title"><a href=https://it.wikipedia.org/wiki/{{res}}>https://it.wikipedia.org/wiki/{{res}}</a></p>
+						    	{% endif %}
+							{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</body>
+</html>

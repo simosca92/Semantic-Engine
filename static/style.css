@@ -1,0 +1,73 @@
+body{
+  /*background-image: url("sfondo.jpg");*/
+  font-family: Lato;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.in {
+  width: 100%;
+  margin-top: 10px;
+}
+img{
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -150px;
+}
+textarea{
+  border-radius: 10px;
+  font-size: 15px;
+}
+input {
+    background-color: #898b8c ; /* Green */
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+input:hover {
+  background:#C0C0C0;
+  text-decoration: none;
+}
+#rix{
+  width: 98.5%;
+  background-color: #FAF0E6;
+  border:2px solid black;
+  border-radius: 12px;
+}
+#first{
+  
+  width: 100%;
+  height: 100%;
+  top: 45%;
+  text-align: center;
+  position: absolute;
+
+ 
+}
+.answer {
+  margin-left:15px;
+  width: fit-content;
+}
+.title {
+  margin-left:20px;
+  margin-bottom: -15px;
+  width: fit-content;
+  
+}
+select:{
+    border-radius: 32px;
+}
+#loading {
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background:url("/static/loading.gif") no-repeat center center rgba(0,0,0,0.25)
+}
