@@ -8,7 +8,7 @@ To use the semantic engine code, you will need:
 * [Flask](http://flask.pocoo.org/)
 * [gensim](https://radimrehurek.com/gensim/) (for vocabulary expansion when training new models)
 
-### How to run the app
+## How to run the app
 
 
 In the project directory run:
