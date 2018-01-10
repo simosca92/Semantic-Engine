@@ -1,7 +1,7 @@
-# Semantic-Engine
+# Semantic-Engine based on Document Embedding
 
 ## Dependencies and Setup
-To use the semantic engine code, you will need:
+To use the semantic engine application, you will need:
 * Python 2.7
 * A recent version of [NumPy](http://www.numpy.org/) and [SciPy](http://www.scipy.org/)
 * [NLTK 3](http://www.nltk.org/)
@@ -10,10 +10,17 @@ To use the semantic engine code, you will need:
 
 ## How to run the app
 
+  * In the project directory run the following commands:
 
-In the project directory run:
-
-```
-$ sh getPrepared.sh
-```
-This will download all the model required (WARNING: the file are about 5 GB each)
+  ```
+  $ sh getPrepared.sh
+  ```
+  This will download all the models files required (WARNING: the files are about 5 GB each)
+  
+  * 
+  
+  ```
+  $ python flaskr.py
+  ```
+  
+  This will run the app on: http://127.0.0.1:5000/engine
