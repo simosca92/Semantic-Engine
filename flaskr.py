@@ -54,7 +54,7 @@ def loadModel(ID,t=0):
 	result=None
 	if(ID==1):
 		print "Loading DBOWw model..."
-		result= models.Doc2Vec.load('../../trained-model/CORPUS-cinLettInf/DBOWw/my_modelDBOWw.doc2vec')
+		result= models.Doc2Vec.load('models/DBOWw/my_modelDBOWw.doc2vec')
 		print "Done"
 	elif(ID==2):
 		print "Loading DBOW model..."
