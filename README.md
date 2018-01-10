@@ -10,7 +10,9 @@ To use the semantic engine application, you will need:
 
 ## How to run the app
 
-  * In the project directory run the following commands:
+  In the project directory run the following commands:
+  
+  *
 
   ```
   $ sh getPrepared.sh
