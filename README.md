@@ -17,7 +17,7 @@ To use the semantic engine application, you will need:
   ```
   $ sh getPrepared.sh
   ```
-  This will download all the models files required (WARNING: the files are about 5 GB each)
+  This will download all the model files required (WARNING: the files are about 5 GB each)
   
   * 
   
