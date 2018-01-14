@@ -65,7 +65,7 @@ def loadModel(ID,t=0):
 		result = FastSent.load('models/dim200/w5/FastSent1_no_autoencoding_200_10_1e-10')
 		del sent
 		del allDoc
-		sent=getAllSentence('corpus/mergLett.txt')
+		sent=getAllSentence('corpus/corpus/mergLett.txt')
 		allDoc=result.getSentenceVect('models/obj/lettDoc/Vect.npy')
 		print "Done"
 	return result
@@ -194,21 +194,21 @@ def login(result=None):
 					if(topic!=1):
 						del sent
 						del allDoc
-						sent=getAllSentence('corpus/mergLett.txt')
+						sent=getAllSentence('corpus/corpus/mergLett.txt')
 						allDoc=model.getSentenceVect('models/obj/lettDoc/Vect.npy')
 						topic=1
 				elif session['topic'] == 't2':
 					if(topic!=2):
 						del sent
 						del allDoc
-						sent=getAllSentence('corpus/mergInf.txt')
+						sent=getAllSentence('corpus/corpus/mergInf.txt')
 						allDoc=model.getSentenceVect('models/obj/infDoc/Vect.npy')
 						topic=2
 				else:
 					if(topic!=3):
 						del sent
 						del allDoc
-						sent=getAllSentence('corpus/mergCin.txt')
+						sent=getAllSentence('corpus/corpus/mergCin.txt')
 						allDoc=model.getSentenceVect('models/obj/cinDoc/Vect.npy')
 						topic=3
 				final=''
