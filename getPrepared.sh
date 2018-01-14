@@ -5,6 +5,7 @@ if ! dpkg -s pv > /dev/null; then
 	sudo apt-get install pv
 fi
 
+#REPOSITORY TO USE WGET ON MEGA CLOUD
 git clone https://github.com/tonikelope/megadown.git
 cd megadown
 chmod +x megadown
@@ -19,12 +20,15 @@ chmod +x megadown
 
 # CORPUS FASTSENT
 ./megadown 'https://mega.nz/#!at1mXbCJ!gdeFko8o0VQEY0nVfq_A4TePfXmjq9xmofDBNMxMkjA' -o./corpus.zip
+# CORPUS PV
+./megadown 'https://mega.nz/#!a0ElEC5B!ZeWT8ytxEdYNffFkVW2VX1z6bg6OC_5WpEiKVidyD44' -o./corpus1.zip
 
 mv  model1.zip ../models
 mv  model2.zip ../models
 mv  model3.zip ../models
 mv  obj.zip ../models
 mv  corpus.zip ../corpus
+mv  corpus1.zip ../corpus
 
 cd ..
 rm -R megadown
@@ -41,3 +45,5 @@ rm obj.zip
 cd ../corpus
 unzip corpus.zip
 rm corpus.zip
+unzip corpus1.zip
+rm corpus1.zip

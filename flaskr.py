@@ -170,7 +170,7 @@ def login(result=None):
 					final=final+resString
 					final=final+'<br>'
 					filename=st[1]
-					f = open("../../allWikiTrain/"+filename, "r")
+					f = open("corpus/allWikiTrain/"+filename, "r")
 					searchlines = f.readlines()
 					f.close()
 					for k, line in enumerate(searchlines):
