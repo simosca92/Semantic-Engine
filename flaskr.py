@@ -53,20 +53,20 @@ def loadModel(ID,t=0):
 	global allDoc
 	result=None
 	if(ID==1):
-		print "Loading DBOWw model..."
+		print "Loading DBOW + DMConc model..."
 		result= models.Doc2Vec.load('models/DBOWw/my_modelDBOWw.doc2vec')
 		print "Done"
 	elif(ID==2):
 		print "Loading DBOW model..."
-		result= models.Doc2Vec.load('../../trained-model/CORPUS-cinLettInf/DBOW/CinLettInf/my_modelDBOW.doc2vec')
+		result= models.Doc2Vec.load('models/DBOW/CinLettInf/my_modelDBOW.doc2vec')
 		print "Done"
 	elif(ID==3):
 		print "Loading FASTSENT model..."
-		result = FastSent.load('../../../SentenceRepresentation-master/FastSent/dim200/w5/FastSent1_no_autoencoding_200_10_1e-10')
+		result = FastSent.load('models/dim200/w5/FastSent1_no_autoencoding_200_10_1e-10')
 		del sent
 		del allDoc
-		sent=getAllSentence('../../../skip-thoughts/corpus/mergLett.txt')
-		allDoc=result.getSentenceVect('../../../SentenceRepresentation-master/FastSent/obj/lettDoc/Vect.npy')
+		sent=getAllSentence('corpus/mergLett.txt')
+		allDoc=result.getSentenceVect('models/obj/lettDoc/Vect.npy')
 		print "Done"
 	return result
 
@@ -194,22 +194,22 @@ def login(result=None):
 					if(topic!=1):
 						del sent
 						del allDoc
-						sent=getAllSentence('../../../skip-thoughts/corpus/mergLett.txt')
-						allDoc=model.getSentenceVect('../../../SentenceRepresentation-master/FastSent/obj/lettDoc/Vect.npy')
+						sent=getAllSentence('corpus/mergLett.txt')
+						allDoc=model.getSentenceVect('models/obj/lettDoc/Vect.npy')
 						topic=1
 				elif session['topic'] == 't2':
 					if(topic!=2):
 						del sent
 						del allDoc
-						sent=getAllSentence('../../../skip-thoughts/corpus/mergInf.txt')
-						allDoc=model.getSentenceVect('../../../SentenceRepresentation-master/FastSent/obj/infDoc/Vect.npy')
+						sent=getAllSentence('corpus/mergInf.txt')
+						allDoc=model.getSentenceVect('models/obj/infDoc/Vect.npy')
 						topic=2
 				else:
 					if(topic!=3):
 						del sent
 						del allDoc
-						sent=getAllSentence('../../../skip-thoughts/corpus/mergCin.txt')
-						allDoc=model.getSentenceVect('../../../SentenceRepresentation-master/FastSent/obj/cinDoc/Vect.npy')
+						sent=getAllSentence('corpus/mergCin.txt')
+						allDoc=model.getSentenceVect('models/obj/cinDoc/Vect.npy')
 						topic=3
 				final=''
 				sim=model.mostSimilarSent(sent,query,allDoc,40)
